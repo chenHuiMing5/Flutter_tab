@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'FirstPageVC.dart';
+
 class HomePageVC extends StatefulWidget {
   HomePageVC({Key key}) : super(key: key);
 
@@ -11,15 +13,15 @@ class _HomePageVCState extends State<HomePageVC> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Container(
-        child: ListView.builder(
-          itemCount: 30,
-          itemBuilder: (context, index) {
-            return ListTile(
-              title: Text("我是第 $index 行数据"),
-            );
-          },
-        ),
+      child: Column(
+        children: <Widget>[
+          RaisedButton(
+              child: Text("我是第一个页面"),
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => FirstPageVC()));
+              })
+        ],
       ),
     );
   }
